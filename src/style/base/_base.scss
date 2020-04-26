@@ -6,6 +6,11 @@ body {
   font-family: Helvetica,Arial, sans-serif;
   font-size: $size-m;
 }
+
+.is-active-link{
+  font-weight: bold;
+}
+
 //for very small phone screens
 @media (max-width: $small-phones-breakpoint) {
   body {
