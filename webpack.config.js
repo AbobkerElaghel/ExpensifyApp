@@ -1,4 +1,5 @@
 const path = require('path');
+const src = "./src/app.jsx";
 
 module.exports = {
     entry: './src/app.jsx',
