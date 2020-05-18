@@ -3,10 +3,15 @@ import ExpenseListItem from "./ExpenseListItem.jsx";
 import { connect } from "react-redux";
 import getFilteredExpenses from "../selectors/expenses.js";
 //const ExpenseList =
-const ExpenseList = props => (
+export const ExpenseList = props => (
     <div>
-        <h1>Expense List</h1>
-        {props.expenses.map(expense => (<ExpenseListItem {...expense} key={expense.id} dispatch={props.dispatch}/>))}
+        {
+            props.expenses.length === 0 ? (
+                <p>There is no expenses</p>
+            ) : (
+                props.expenses.map(expense => <ExpenseListItem {...expense} key={expense.id} dispatch={props.dispatch}/>)
+            )
+        }
     </div>
 );
 
