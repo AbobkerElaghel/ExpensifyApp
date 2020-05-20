@@ -5,11 +5,8 @@ import AppRouter from "./router/AppRouter.jsx";
 import configureStore from "./store/configureStore.js";
 import "normalize.css/normalize.css";
 import "./style/style.scss";
+import "react-dates/lib/css/_datepicker.css"
 import { addExpense } from "./actions/expensesAction";
-import moment from "moment";
-
-console.log(moment("2013-02-25T00:00:00.000").isSameOrAfter(moment("2013-01-21T00:00:00.000"))); //Starting
-console.log(moment("2013-02-1T00:00:00.000").isSameOrBefore(moment("2013-01-21T00:00:00.000"))); //Starting
 
 const store = configureStore();
 
