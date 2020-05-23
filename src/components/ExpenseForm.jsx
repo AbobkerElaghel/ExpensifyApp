@@ -1,10 +1,9 @@
 import React from "react";
 import moment from "moment";
 import 'react-dates/initialize';
-import {SingleDatePicker} from "react-dates";
+import { SingleDatePicker } from "react-dates";
 
 export default class ExpenseForm extends React.Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -18,23 +17,23 @@ export default class ExpenseForm extends React.Component {
     };
     onDescriptionChange = e => {
         const description = e.target.value;
-        this.setState(() => ({description}))
+        this.setState(() => ({description}));
     };
     onNoteChange = e => {
         const note = e.target.value;
-        this.setState(() => ({note}))
+        this.setState(() => ({note}));
     };
     onAmountChange = e => {
         const amount = e.target.value;
         if(!amount || amount.match(/^\d{1,}(\.\d{0,2})?$/)){
-            this.setState(() => ({amount}))
+            this.setState(() => ({amount}));
         }
     };
     onDateChange = createdAt => {
-        this.setState(() => ({createdAt}))
+        this.setState(() => ({createdAt}));
     };
     onFocusChange = ({focused}) => {
-      this.setState(() => ({calendarFocused: focused}))
+      this.setState(() => ({calendarFocused: focused}));
     };
     onSubmit = e => {
         e.preventDefault();
@@ -42,8 +41,8 @@ export default class ExpenseForm extends React.Component {
             this.setState(() => ({error: "Please provide description and amount"}));
             return;
         }
-        this.setState(() => ({error: undefined}));
-        this.props.onSumbit({
+        this.setState(() => ({error: ""}));
+        this.props.onSubmit({
             description: this.state.description,
             note: this.state.note,
             amount: parseFloat(this.state.amount) * 100,
@@ -80,7 +79,7 @@ export default class ExpenseForm extends React.Component {
                         value={this.state.note}
                         onChange={this.onNoteChange}>
                     </textarea>
-                    <button type="submit">Add Expense</button>
+                    <button type="submit">Submit</button>
                 </form>
             </div>
         );
