@@ -8,7 +8,7 @@ export class ExpenseListFilter extends React.Component {
     state = {
         calenderFocused: null,
         startDateId: this.props.filters.startDate === undefined ? moment().valueOf().toString() : this.props.filters.startDate.valueOf().toString(),
-        endDateId: this.props.filters.endDate === undefined ? moment().add(1,"days").valueOf().toString() : this.props.filters.startDate.valueOf().toString()
+        endDateId: this.props.filters.endDate === undefined ? moment().add(1,"days").valueOf().toString() : this.props.filters.endDate.valueOf().toString()
     };
 
     onDateChange = ({startDate, endDate}) => {

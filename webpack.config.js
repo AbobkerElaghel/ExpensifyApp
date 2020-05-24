@@ -15,7 +15,7 @@ module.exports = env => {
             path: path.join(__dirname,'public'),
             filename: "bundle.js"
         },
-        mode: "development",
+        mode: "production",
         plugins: [new MiniCssExtractPlugin({
             filename: "style.css"
         })],
