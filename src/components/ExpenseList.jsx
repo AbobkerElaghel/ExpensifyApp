@@ -15,6 +15,6 @@ export const ExpenseList = props => (
     </div>
 );
 
-const mapStateToProps = (state) => ({expenses: getFilteredExpenses(state.expenses, state.filters)});
+const mapStateToProps = state => ({expenses: getFilteredExpenses(state.expenses, state.filters)});
 
 export default connect(mapStateToProps)(ExpenseList);
