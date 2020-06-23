@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 process.env.NODE_ENV = process.env.NODE_ENV || "development";
-
+//
 switch (process.env.NODE_ENV) {
     case 'test':
     {
