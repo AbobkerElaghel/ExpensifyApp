@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from "react-redux";
+import { startSetExpense } from './actions/expensesAction.js';
 import AppRouter from "./router/AppRouter.jsx";
 import configureStore from "./store/configureStore.js";
 import "normalize.css/normalize.css";
@@ -16,5 +17,10 @@ const JSX = (
     </Provider>
 );
 
-ReactDOM.render(JSX, document.getElementById("app"));
+ReactDOM.render(<p> Loading... </p>, document.getElementById("app"));
+
+store.dispatch(startSetExpense()).then(() => {
+    ReactDOM.render(JSX, document.getElementById("app"));
+});
+
 
