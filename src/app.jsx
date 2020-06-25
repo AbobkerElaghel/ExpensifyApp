@@ -13,7 +13,7 @@ const store = configureStore();
 
 const JSX = (
     <Provider store={store}>
-        <AppRouter/>
+        <AppRouter />
     </Provider>
 );
 

@@ -15,8 +15,8 @@ export class AddExpensePage extends React.Component{
                 <h3>Add Expense</h3>
                 <ExpenseForm onSubmit={this.onSubmit}/>
             </div>
-        )
-    }
+        );
+    };
 }
 
 const mapDispatchToProps = dispatch => ({
