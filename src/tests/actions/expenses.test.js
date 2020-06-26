@@ -3,6 +3,7 @@ import {
     setExpenses,
     addExpense,
     editExpense,
+    startEditExpense,
     removeExpense,
     startAddExpense,
     startRemoveExpense
@@ -48,6 +49,25 @@ test("should setup edit expense object", () => {
             description: "hello",
             amount: 123.123
         }
+    });
+});
+
+test('should edit expense from firebase', done => {
+    const store = createMockStore();
+    const id = 0;
+    const updates = {amount: 101069};
+
+    return store.dispatch(startEditExpense(id, updates)).then(() => {
+        const actions = store.getActions();
+        expect(actions[0]).toEqual({
+            type: "EDIT_EXPENSE",
+            id,
+            updates
+        });
+        return database.ref(`expenses/${id}`).once('value');
+    }).then(snapshot => {
+        expect(snapshot.val().amount).toBe(updates.amount);
+        done();
     });
 });
 
@@ -128,6 +148,8 @@ test('should fetch the expenses from firebase', done => {
         done();
     });
 });
+
+
 
 
 
