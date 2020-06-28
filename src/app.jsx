@@ -9,6 +9,7 @@ import "./style/style.scss";
 import "react-dates/lib/css/_datepicker.css"
 import "./firebase/firebase.js";
 import {firebase} from "./firebase/firebase";
+import {login, logout} from "./actions/authAction";
 
 const store = configureStore();
 
@@ -30,6 +31,7 @@ ReactDOM.render(<p> Loading... </p>, document.getElementById("app"));
 
 firebase.auth().onAuthStateChanged((user) => {
     if(user){
+        store.dispatch(login(user.uid));
         store.dispatch(startSetExpense()).then(() => {
             renderApp();
             if(history.location.pathname === '/'){
@@ -37,6 +39,7 @@ firebase.auth().onAuthStateChanged((user) => {
             }
         });
     }else{
+        store.dispatch(logout());
         renderApp();
         history.push('/');
     }

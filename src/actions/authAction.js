@@ -6,7 +6,7 @@ export const login = uid => ({
 });
 export const startLogin = () => (() => firebase.auth().signInWithPopup(googleAuthProvider));
 
-export const Logout = () => ({
+export const logout = () => ({
     type: "LOGOUT"
 });
 export const startLogout = () => (() => firebase.auth().signOut());
