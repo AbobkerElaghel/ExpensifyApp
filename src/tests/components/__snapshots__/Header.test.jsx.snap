@@ -24,14 +24,6 @@ exports[`should render Header component correctly 1`] = `
       Add Page 
     </NavLink>
   </p>
-  <p>
-     
-    <NavLink
-      activeClassName="is-active-link"
-      to="/edit/123"
-    >
-      Edit Page 
-    </NavLink>
-  </p>
+  <Connect(Logout) />
 </header>
 `;
