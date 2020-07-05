@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 
 export const Logout = ({startLogout}) => (
     <div>
-        <button onClick={startLogout}>Logout</button>
+        <button className="button button--link" onClick={startLogout}>Logout</button>
     </div>
 );
 

@@ -1,14 +1,18 @@
 import React from "react";
-import {NavLink} from "react-router-dom";
+import {Link} from "react-router-dom";
 import Logout from './Logout.jsx';
 
 const Header = () => (
-    <header>
-        <h1>ExpensifyApp</h1>
-        <p> <NavLink activeClassName="is-active-link" exact to="/">Home Page </NavLink></p>
-        <p> <NavLink activeClassName="is-active-link" to="/create">Add Page </NavLink></p>
+    <header className="header">
+        <div className="content-container">
+            <div className="header__content">
+                <Link className="header__title" exact to="/dashboard">
+                    <h1>Expensify</h1>
+                </Link>
         {/*<p> <NavLink activeClassName="is-active-link" to="/edit/123">Edit Page </NavLink></p>*/}
-        <Logout />
+                <Logout />
+            </div>
+        </div>
         {/*<p> <NavLink activeClassName="is-active-link" to="/help">Help Page </NavLink></p>*/}
     </header>
 );
