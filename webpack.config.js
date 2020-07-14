@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+require("@babel/polyfill");
 
 process.env.NODE_ENV = process.env.NODE_ENV || "development";
 ///
@@ -23,7 +24,7 @@ module.exports = env => {
     const isProduction = env === "production";
 
     return {
-        entry: './src/app.jsx',
+        entry: ['@babel/polyfill', './src/app.jsx'],
         optimization: {
             minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})]
         },
@@ -46,7 +47,7 @@ module.exports = env => {
         module: {
             rules: [{
                 loader: 'babel-loader',
-                test: /\.jsx$/,
+                test: /\.jsx?$/,
                 exclude: /node_modules/
             }, {
                 test: /\.s?css$/,

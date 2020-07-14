@@ -10,13 +10,17 @@ export const ExpenseList = props => (
             <div className="show-for-desktop">Expense</div>
             <div className="show-for-desktop">Amount</div>
         </div>
+        <div className="list-body">
         {
             props.expenses.length === 0 ? (
-                <p>There is no expenses</p>
+                <div className="list-item list-item--message">
+                    <span>There is no expenses</span>
+                </div>
             ) : (
                 props.expenses.map(expense => <ExpenseListItem {...expense} key={expense.id} dispatch={props.dispatch}/>)
             )
         }
+        </div>
     </div>
 );
 

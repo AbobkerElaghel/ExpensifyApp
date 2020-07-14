@@ -2,7 +2,9 @@
 
 exports[`should render Logout component correctly 1`] = `
 <div>
-  <button>
+  <button
+    className="button button--link"
+  >
     Logout
   </button>
 </div>
