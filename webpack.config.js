@@ -21,6 +21,7 @@ switch (process.env.NODE_ENV) {
 }
 
 module.exports = env => {
+    console.log(env)
     const isProduction = env === "production";
 
     return {
