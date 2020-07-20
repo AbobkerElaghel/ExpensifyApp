@@ -1,3 +1,5 @@
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');;
+
 const path = require('path');
 const webpack = require('webpack');
 const TerserJSPlugin = require('terser-webpack-plugin');
@@ -21,9 +23,7 @@ switch (process.env.NODE_ENV) {
 }
 
 module.exports = env => {
-    console.log(env)
     const isProduction = env === "production";
-
     return {
         entry: ['@babel/polyfill', './src/app.jsx'],
         optimization: {
@@ -34,7 +34,9 @@ module.exports = env => {
             filename: "bundle.js"
         },
         mode: isProduction ? "production" : "development",
-        plugins: [new MiniCssExtractPlugin({
+        plugins: [
+            new CleanWebpackPlugin(),
+            new MiniCssExtractPlugin({
             filename: "style.css"
         }), new webpack.DefinePlugin({
             'process.env.FIREBASE_API_KEY': JSON.stringify(process.env.FIREBASE_API_KEY),
@@ -70,7 +72,7 @@ module.exports = env => {
                 }]
             }]
         },
-        devtool: isProduction ? "source-map" : "inline-source-map",
+        devtool: isProduction ? false : "inline-source-map",
         devServer: {
             contentBase: path.join(__dirname,'public'),
             historyApiFallback: true,
