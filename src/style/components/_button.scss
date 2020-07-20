@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:500);
+
 .button {
   background: $cyanish-blue;
   border: none;
@@ -16,4 +18,66 @@
 
 .button--secondary {
   background: #888888;
+}
+
+.button--google {
+  width: 184px;
+  height: 42px;
+  background-color: $google-blue;
+  border-radius: 2px;
+  display: inline-block;
+  transition: box-shadow .3s ease;
+  box-shadow: 0 3px 4px 0 rgba(0,0,0,.25);
+  .google-icon-wrapper {
+    position: absolute;
+    margin: 1px 0 0 1px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 2px;
+    background-color: white;
+  }
+  .google-icon {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    margin: $size-s 0 0 $size-s;
+    width: 18px;
+    height: 18px;
+  }
+  .google-btn-text {
+    float: right;
+    margin: $size-xs $size-xs 0 0;
+    color: white;
+    font-size: 13px;
+    letter-spacing: 0.2px;
+    font-family: "Roboto", sans-serif;
+  }
+
+  &:hover {
+    box-shadow: 0 0 6px $google-blue;
+  }
+  &:active {
+    background: $button-active-blue;
+  }
+}
+
+
+.button--facebook {
+  @extend .button--google;
+  background: #f7f7f7;
+  .facebook-icon-wrapper{
+    @extend .google-icon-wrapper;
+  }
+  .facebook-icon {
+    @extend .google-icon;
+  }
+  .facebook-btn-text {
+    @extend .google-btn-text;
+    color: $google-blue;
+    font-size: 13px;
+  }
+  &:active {
+    background: white;
+  }
 }
