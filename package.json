@@ -57,7 +57,8 @@
     "build:dev": "webpack",
     "build:prod": "webpack -p --env production",
     "test": "jest --config=jest.config.json",
-    "test:watch": "jest --config=jest.config.json --watch"
+    "test:watch": "jest --config=jest.config.json --watch",
+    "heroku-postbuild": "npm run build:prod"
   },
   "author": "Abobker",
   "license": "ISC"
