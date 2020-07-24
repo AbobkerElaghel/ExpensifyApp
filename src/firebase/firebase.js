@@ -13,10 +13,6 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
-const functions = firebase.functions();
-
-console.log(functions);
-
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 const facebookAuthProvider = new firebase.auth.FacebookAuthProvider();
 
