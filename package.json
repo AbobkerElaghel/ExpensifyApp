@@ -6,7 +6,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.10.4",
     "css-loader": "^3.6.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "firebase": "^7.15.4",
     "history": "^4.7.2",
     "loader": "^2.1.1",
